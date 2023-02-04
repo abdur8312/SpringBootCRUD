@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Show data</title>
+	</head>
+	<body>
+		<form action = "showDragInfo">
+			<a href = "/home">Add Dragon</a>
+			<br><br>
+			<table border = "1">
+				<tr>
+					<th>Id</th>
+					<th>Dragon Name</th>
+					<th>Actions</th>
+				</tr>
+				<!-- To overcome Undefined attribute name in th:each, Use xmlns:th="http://www.thymeleaf.org" inside 
+				html tag -->
+				<tr th:each = "dragon : ${list}">
+					<td th:text = "${dragon.getDragonid()}">Id</td>
+					<td th:text = "${dragon.getDragname()}">Dragon Name</td>
+					<td>
+						<a th:href = "@{/updateDragon?dragonid={id}(id = ${dragon.getDragonid()})}">Update</a>
+						&nbsp;&nbsp;&nbsp;
+						<a th:href = "@{/deleteDragon?dragonid={id}(id = ${dragon.getDragonid()})}">Delete</a>
+					</td>
+				</tr>
+			</table>
+		</form>
+		
+	</body>
+</html>

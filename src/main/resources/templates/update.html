@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Update</title>
+	</head>
+	<body>
+		<div align = "center">
+			<form action = "#" th:action="@{/addDragon}" th:object="${dragonDB}" method="post">
+				<label>Dragon ID : </label>
+				<input type="text" th:field="*{dragonid}" readonly="readonly"> <br>
+				<label>Dragon name : </label>
+				<input type="text" th:field="*{dragname}"> <br>
+				<button type="submit">Save</button>
+			</form>
+		</div>
+	</body>
+</html>
